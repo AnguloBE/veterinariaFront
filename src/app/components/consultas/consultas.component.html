@@ -1,0 +1,25 @@
+<div class="d-flex flex-wrap mt-5 justify-content-evenly m-auto" style="width: 75%;">
+
+  <div class="card text-bg-info m-3" *ngFor="let ingreso of ingresos" style="max-width: 18rem;">
+    <div class="card-header">Razon de ingreso: {{ ingreso.consulta.razonIngreso }} </div>
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ ingreso.animal.nombre }}</h5>
+
+      <p class="card-text text-center">Cliente: {{ ingreso.cliente.nombre }}</p>
+      <hr>
+      <p class="card-text">Detalles: {{ ingreso.consulta.detallesConsulta }}</p>
+      <p class="card-text">Fecha : {{ ingreso.consulta.fechaIngreso | date:"dd/MM/yyyy hh:mm aa." }}</p>
+      <hr>
+      <p class="card-text text-center">Costo: {{ ingreso.consulta.importe }}</p>
+
+      <div class="d-flex justify-content-center">
+        <button [routerLink]="['/detallesconsulta', ingreso.consulta.consultaId]" class="btn btn-primary me-3">Ver detalles</button>
+        <button class="btn btn-primary">Dar de alta</button>
+      </div>
+
+    </div>
+  </div>
+  
+ 
+ 
+</div>
